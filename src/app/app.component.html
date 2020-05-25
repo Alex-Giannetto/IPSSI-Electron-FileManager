@@ -1,1 +1,14 @@
-<app-elements-grid [elements]="elements"></app-elements-grid>
+<div class="app">
+  <div class="header">
+    <app-header (searchFilter)="onSearchChange($event)"></app-header>
+  </div>
+
+  <div class="horizontal">
+    <div class="sidebar"></div>
+
+    <div class="display">
+      <app-elements-grid [elements]="elements"></app-elements-grid>
+    </div>
+
+  </div>
+</div>

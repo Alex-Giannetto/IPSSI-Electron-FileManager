@@ -5,13 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ElementComponent } from './components/element/element.component';
 import { ElementsGridComponent } from './components/elements-grid/elements-grid.component';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import { HeaderComponent } from './components/header/header.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     ElementComponent,
-    ElementsGridComponent
+    ElementsGridComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

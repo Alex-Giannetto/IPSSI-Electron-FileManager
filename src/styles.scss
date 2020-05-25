@@ -1,19 +1,25 @@
 :root {
   --color-background: #fff;
+  --color-background-light: #fafafa;
+  --color-background-very-light: #6e6d6b;
+
   --color-background-select: 233,233,233;
+
+
   --color-text: #000;
+  --color-text-light: #959492;
 }
 
 @media (prefers-color-scheme: dark) {
-  /*
-   * Dark Colors
-   * -------------------------------------------
-   */
-
   body {
     --color-background: #1e1f22;
+    --color-background-light: #413f3f;
+    --color-background-very-light: #6e6d6b;
     --color-background-select: 59,60,62;
+
+
     --color-text: #fff;
+    --color-text-light: #959492;
   }
 }
 
@@ -22,4 +28,12 @@ body {
   background-color: var(--color-background);
   color: var(--color-text);
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  width: 100vw;
+  height: 100vh;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }

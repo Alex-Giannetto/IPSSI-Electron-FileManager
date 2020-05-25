@@ -1,1 +1,23 @@
+.app{
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 
+  .horizontal{
+    display: flex;
+    overflow: scroll;
+
+    .sidebar{
+      width: 250px;
+      overflow: scroll;
+    }
+
+    .display{
+      height: auto;
+      width: 100%;
+      overflow: scroll;
+    }
+  }
+
+}

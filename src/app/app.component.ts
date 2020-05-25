@@ -1,25 +1,27 @@
 import { Component, OnInit } from '@angular/core'
 import { FilesService } from './services/files.service'
-import { FileInterface } from './interfaces/File.interface'
-import { FolderInterface } from './interfaces/Folder.Interface'
 import { FolderModel } from './models/Folder.model'
+import { FileInterface } from './interfaces/File.interface'
 
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.scss"],
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
 
-  elements : (FolderModel|FileInterface)[] = []
+  elements: (FolderModel | FileInterface)[] = []
 
   constructor (private filesService: FilesService) {}
 
   ngOnInit (): void {
-    this.elements = this.filesService.getFolderContent('/users/alex')
+    this.filesService.getFolderContent('/')
+    this.elements = [...this.filesService.elements]
   }
 
-  pathChanged (e){
-    console.log(e.value)
+  onSearchChange (search) {
+    this.elements = [...this.filesService.elements]
+    this.elements = this.elements.filter(element => element.name.indexOf(search) > -1)
   }
+
 }

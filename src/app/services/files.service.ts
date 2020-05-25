@@ -10,10 +10,11 @@ const electronFs = remote.require('fs')
   providedIn: 'root',
 })
 export class FilesService {
-  path: EventEmitter<string> = new EventEmitter<string>()
+  path: string[]
+  elements: (FolderModel | FileInterface)[] = []
 
   getFolderContent (path: string): (FolderModel | FileInterface)[] {
-    const elements: (FolderModel | FileInterface)[] = []
+    this.elements = []
 
     electronFs.readdirSync(path).forEach(fileName => {
       if (fileName.charAt(0) !== '.') {
@@ -22,14 +23,16 @@ export class FilesService {
         const meta = electronFs.statSync(elementPath)
 
         if (meta.isFile()) {
-          elements.push(new FileModel(fileName, path))
+          this.elements.push(new FileModel(fileName, path))
 
         } else if (meta.isDirectory()) {
-          elements.push(new FolderModel(fileName, path))
+          this.elements.push(new FolderModel(fileName, path))
         }
       }
     })
 
-    return elements
+    this.path = path.split('/')
+
+    return this.elements
   }
 }
