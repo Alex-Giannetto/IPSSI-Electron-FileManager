@@ -6,14 +6,16 @@ import { AppComponent } from './app.component';
 import { ElementComponent } from './components/element/element.component';
 import { ElementsGridComponent } from './components/elements-grid/elements-grid.component';
 import { FormsModule } from '@angular/forms';
-import { HeaderComponent } from './components/header/header.component'
+import { HeaderComponent } from './components/header/header.component';
+import { PathBarComponent } from './components/path-bar/path-bar.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     ElementComponent,
     ElementsGridComponent,
-    HeaderComponent
+    HeaderComponent,
+    PathBarComponent
   ],
   imports: [
     BrowserModule,

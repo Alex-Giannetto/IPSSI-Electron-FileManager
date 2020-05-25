@@ -10,8 +10,11 @@ const electronFs = remote.require('fs')
   providedIn: 'root',
 })
 export class FilesService {
-  path: string[]
-  elements: (FolderModel | FileInterface)[] = []
+
+  public updateEmitter: EventEmitter<boolean> = new EventEmitter<boolean>()
+  public paths: string[]
+  public elements: (FolderModel | FileInterface)[] = []
+
 
   getFolderContent (path: string): (FolderModel | FileInterface)[] {
     this.elements = []
@@ -31,7 +34,10 @@ export class FilesService {
       }
     })
 
-    this.path = path.split('/')
+    this.paths = path.split('/')
+    this.paths.shift()
+
+    this.updateEmitter.emit(true)
 
     return this.elements
   }

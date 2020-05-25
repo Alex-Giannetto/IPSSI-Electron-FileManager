@@ -6,18 +6,42 @@
 
   .horizontal{
     display: flex;
-    overflow: scroll;
-
-    .sidebar{
-      width: 250px;
-      overflow: scroll;
-    }
-
-    .display{
-      height: auto;
-      width: 100%;
-      overflow: scroll;
-    }
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
   }
 
+  .header{
+    border-bottom: 1px solid black;
+  }
+
+  .sidebar{
+    min-width: 150px;
+    width: 40%;
+    max-width: 200px;
+    overflow: scroll;
+    background-color: var(--color-background-light);
+    border-right: 1px solid black;
+  }
+
+  .vertical{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-x: scroll;
+
+    .display{
+      flex: 1 1 auto;
+      overflow-y: auto;
+      height: 0;
+    }
+
+
+
+  }
 }
+
+
+
+

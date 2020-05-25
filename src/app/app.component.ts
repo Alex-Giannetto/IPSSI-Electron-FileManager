@@ -15,13 +15,18 @@ export class AppComponent implements OnInit {
   constructor (private filesService: FilesService) {}
 
   ngOnInit (): void {
+    this.filesService.updateEmitter.subscribe(() => this.updateElements())
+
     this.filesService.getFolderContent('/')
-    this.elements = [...this.filesService.elements]
   }
 
   onSearchChange (search) {
     this.elements = [...this.filesService.elements]
     this.elements = this.elements.filter(element => element.name.indexOf(search) > -1)
+  }
+
+  updateElements () {
+    this.elements = [...this.filesService.elements]
   }
 
 }

@@ -4,10 +4,19 @@
   </div>
 
   <div class="horizontal">
-    <div class="sidebar"></div>
+    <div class="sidebar">
+      <h1>Favoris</h1>
+    </div>
 
-    <div class="display">
-      <app-elements-grid [elements]="elements"></app-elements-grid>
+    <div class="vertical">
+      <div class="display">
+        <app-elements-grid [elements]="elements"></app-elements-grid>
+      </div>
+
+      <div class="path">
+        <app-path-bar></app-path-bar>
+      </div>
+
     </div>
 
   </div>

@@ -2,7 +2,7 @@
   --color-background: #fff;
   --color-background-light: #fafafa;
   --color-background-very-light: #6e6d6b;
-
+  --color-background-contrast-light: #a4a3a1;
   --color-background-select: 233,233,233;
 
 
@@ -12,9 +12,10 @@
 
 @media (prefers-color-scheme: dark) {
   body {
-    --color-background: #1e1f22;
-    --color-background-light: #413f3f;
-    --color-background-very-light: #6e6d6b;
+    --color-background: #2b2724;
+    --color-background-light: #383432;
+    --color-background-very-light: #4b4845;
+    --color-background-contrast-light: #a4a3a1;
     --color-background-select: 59,60,62;
 
 

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'
+import { Component, Input, Output } from '@angular/core'
 import { FileInterface } from '../../interfaces/File.interface'
 import { FolderInterface } from '../../interfaces/Folder.Interface'
 

@@ -1,0 +1,8 @@
+<div class="paths">
+  <button
+    *ngFor="let path of filesService.paths; let i = index"
+    (click)="changePath(i)"
+    class="path">
+    {{path||'/'}}
+  </button>
+</div>

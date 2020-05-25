@@ -1,3 +1,3 @@
 <div class="grid">
-  <app-element *ngFor="let element of elements" [element]="element"></app-element>
+  <app-element *ngFor="let element of elements" [element]="element" (click)="elementsClick(element)"></app-element>
 </div>
