@@ -13,10 +13,14 @@ export class ElementsGridComponent {
 
   constructor (private filesService: FilesService) {}
 
-  elementsClick (element: (FolderModel | FileInterface)) {
+  elementsClick (element: (FolderModel | FileInterface)): void {
+    const path = '/' + this.filesService.paths.join('/') + '/' + element.name
+
     if (element.type === 'folder') {
-      const path = '/' + this.filesService.paths.join('/') + '/' + element.name
       this.filesService.getFolderContent(path)
+      return
     }
+
+    this.filesService.openFile(path)
   }
 }

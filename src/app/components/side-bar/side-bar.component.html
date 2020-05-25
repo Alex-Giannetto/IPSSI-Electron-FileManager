@@ -1,0 +1,15 @@
+<div class="side-bar">
+  <h1>Favoris</h1>
+
+  <ul cdkDropList (cdkDropListDropped)="onDrop($event)">
+    <li
+      *ngFor="let favorite of favorites"
+      (click)="filesService.getFolderContent(favorite.path)"
+      [class.active]="'/' + filesService.paths.join('/') === favorite.path"
+      cdkDrag
+    >
+      {{favorite.name}}
+    </li>
+  </ul>
+
+</div>

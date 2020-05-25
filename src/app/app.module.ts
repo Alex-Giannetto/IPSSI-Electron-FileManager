@@ -8,6 +8,8 @@ import { ElementsGridComponent } from './components/elements-grid/elements-grid.
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { PathBarComponent } from './components/path-bar/path-bar.component'
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { SideBarComponent } from './components/side-bar/side-bar.component'
 
 @NgModule({
   declarations: [
@@ -15,12 +17,14 @@ import { PathBarComponent } from './components/path-bar/path-bar.component'
     ElementComponent,
     ElementsGridComponent,
     HeaderComponent,
-    PathBarComponent
+    PathBarComponent,
+    SideBarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

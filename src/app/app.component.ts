@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   ngOnInit (): void {
     this.filesService.updateEmitter.subscribe(() => this.updateElements())
 
-    this.filesService.getFolderContent('/')
+    this.filesService.getFolderContent('/Users/alex')
   }
 
   onSearchChange (search) {

@@ -1,0 +1,30 @@
+.side-bar {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  ul{
+    list-style-type: none;
+    height: 100%;
+
+    li{
+      font-size: 13px;
+      padding: 4px 10px 4px 20px;
+      transition: all .1s;
+      cursor: pointer;
+
+      &:first-letter{
+        text-transform: capitalize;
+      }
+
+      &.active{
+        background-color: var(--color-background-very-light);
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core'
-import { remote } from 'electron'
+import { remote, shell } from 'electron'
 import { FileModel } from '../models/File.model'
 import { FolderModel } from '../models/Folder.model'
 import { FileInterface } from '../interfaces/File.interface'
@@ -14,7 +14,6 @@ export class FilesService {
   public updateEmitter: EventEmitter<boolean> = new EventEmitter<boolean>()
   public paths: string[]
   public elements: (FolderModel | FileInterface)[] = []
-
 
   getFolderContent (path: string): (FolderModel | FileInterface)[] {
     this.elements = []
@@ -40,5 +39,9 @@ export class FilesService {
     this.updateEmitter.emit(true)
 
     return this.elements
+  }
+
+  openFile (path: string): void {
+    shell.openItem(path)
   }
 }

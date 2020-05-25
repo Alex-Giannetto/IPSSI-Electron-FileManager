@@ -3,9 +3,9 @@
     <app-header (searchFilter)="onSearchChange($event)"></app-header>
   </div>
 
-  <div class="horizontal">
+  <div class="horizontal" cdkDropListGroup>
     <div class="sidebar">
-      <h1>Favoris</h1>
+      <app-side-bar></app-side-bar>
     </div>
 
     <div class="vertical">
