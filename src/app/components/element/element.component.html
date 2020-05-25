@@ -1,0 +1,8 @@
+<div class="element">
+  <div class="icon" [class.file]="element.type === 'file'" [class.folder]="element.type === 'folder'">
+    <div class="extension">{{element.type === 'file'? element.extension : ''}}</div>
+  </div>
+  <div class="name">
+    {{element.name}}
+  </div>
+</div>
