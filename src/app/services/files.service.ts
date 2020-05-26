@@ -1,6 +1,7 @@
 import { EventEmitter, Injectable } from '@angular/core'
 import { remote, shell } from 'electron'
 import { ElementInterface } from '../interfaces/Element.interface'
+import { ToastService } from './toast.service'
 
 const electronFs = remote.require('fs')
 
@@ -11,6 +12,8 @@ export class FilesService {
   public updateEmitter: EventEmitter<boolean> = new EventEmitter<boolean>()
   public paths: string[]
   public elements: ElementInterface[] = []
+
+  constructor (private toastService: ToastService) {}
 
   getFolderContent (path: string): ElementInterface[] {
     this.elements = []
@@ -38,8 +41,9 @@ export class FilesService {
   }
 
   async rename (element: ElementInterface, name: string): Promise<boolean> {
+
     if (await this.checkPermissions(`${element.path}/${element.name}`, electronFs.constants.W_OK)) {
-      return Promise.reject('Vous ne possédez pas le droit d\'écriture')
+      return Promise.reject(new Error('Vous ne possédez pas le droit d\'écriture'))
     }
 
     return new Promise<boolean>((resolve, reject) => {
@@ -48,7 +52,6 @@ export class FilesService {
           return reject(error)
         }
         resolve(true)
-
       })
     })
   }

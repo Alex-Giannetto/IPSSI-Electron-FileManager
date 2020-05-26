@@ -11,7 +11,5 @@ export class ElementComponent {
   @Input() element: ElementInterface
   @Input() editionMod : boolean
 
-  shakeDirection: boolean = Math.random() > 0.5
-
   constructor (private filesService: FilesService) {}
 }
