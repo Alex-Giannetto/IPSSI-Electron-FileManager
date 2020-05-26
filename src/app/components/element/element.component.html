@@ -1,6 +1,6 @@
-<div class="element">
+<div class="element" [class.edit]="editionMod" [style.animationDirection]="shakeDirection? 'alternate-reverse' : 'alternate'">
   <div class="icon" [class.file]="element.type === 'file'" [class.folder]="element.type === 'folder'">
-    <div class="extension">{{element.type === 'file'? element.extension : ''}}</div>
+    <div class="extension">{{element.type === 'file'? filesService.getExtension(element) : ''}}</div>
   </div>
   <div class="name">
     {{element.name}}

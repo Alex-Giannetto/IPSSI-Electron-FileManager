@@ -6,6 +6,35 @@
   align-items: center;
   border-radius: 5px;
 
+  &.edit {
+    animation: shake 0.12s infinite ease-in-out;
+    position: relative;
+
+    & .icon:before {
+      content: '✓';
+      font-size: 10px;
+      text-align: center;
+      position: absolute;
+      top: -7.5px;
+      left: -7.5px;
+      width: 12px;
+      height: 12px;
+      background-color: #338a37;
+      border-radius: 100%;
+      border: solid 2px #2b6f31;
+
+    }
+  }
+
+  @keyframes shake {
+    from {
+      transform: rotate(-2deg);
+    }
+    to {
+      transform: rotate(2deg);
+    }
+  }
+
   .icon {
     border-radius: 5px;
     position: relative;
@@ -20,7 +49,7 @@
         content: '';
         position: absolute;
         top: -5px;
-        left: 0px;
+        left: 0;
         width: 25px;
         height: 10px;
         background-color: #4c89a6;
@@ -58,7 +87,7 @@
     font-size: 12px;
   }
 
-  &:active .icon{
+  &:active .icon {
     transform: scale(.9);
 
     &::before {

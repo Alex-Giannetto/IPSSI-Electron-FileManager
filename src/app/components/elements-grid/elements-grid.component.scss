@@ -1,6 +1,32 @@
-.grid{
-  padding: 10px;
-  display: grid;
-  grid-template-columns: repeat( auto-fit, 100px);
-  grid-gap: 5px;
+.elementsGrid{
+  position: relative;
+  transition: padding-bottom .2s;
+
+  &.edit{
+      padding-bottom: 35px;
+  }
+
+  .grid{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat( auto-fit, 100px);
+    grid-gap: 5px;
+  }
+
+
+  .editBar{
+    position: fixed;
+    bottom: 0;
+    opacity: 0;
+    left: 50%;
+    transform: translateX(-25%);
+    transition: all 0.2s;
+
+
+    &.show{
+      bottom: 35px;
+      opacity: 1;
+    }
+  }
+
 }

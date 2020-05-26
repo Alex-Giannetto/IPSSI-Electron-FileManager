@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { FilesService } from './services/files.service'
-import { FolderModel } from './models/Folder.model'
-import { FileInterface } from './interfaces/File.interface'
+import { ElementInterface } from './interfaces/Element.interface'
 
 @Component({
   selector: 'app-root',
@@ -10,7 +9,7 @@ import { FileInterface } from './interfaces/File.interface'
 })
 export class AppComponent implements OnInit {
 
-  elements: (FolderModel | FileInterface)[] = []
+  elements: ElementInterface[] = []
 
   constructor (private filesService: FilesService) {}
 

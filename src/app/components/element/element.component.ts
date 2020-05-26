@@ -1,6 +1,6 @@
 import { Component, Input, Output } from '@angular/core'
-import { FileInterface } from '../../interfaces/File.interface'
-import { FolderInterface } from '../../interfaces/Folder.Interface'
+import { ElementInterface } from '../../interfaces/Element.interface'
+import { FilesService } from '../../services/files.service'
 
 @Component({
   selector: 'app-element',
@@ -8,5 +8,10 @@ import { FolderInterface } from '../../interfaces/Folder.Interface'
   styleUrls: ['./element.component.scss']
 })
 export class ElementComponent {
-  @Input() element: (FileInterface | FolderInterface)
+  @Input() element: ElementInterface
+  @Input() editionMod : boolean
+
+  shakeDirection: boolean = Math.random() > 0.5
+
+  constructor (private filesService: FilesService) {}
 }

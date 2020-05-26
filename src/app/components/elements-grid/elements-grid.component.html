@@ -1,3 +1,20 @@
-<div class="grid" cdkDropList>
-  <app-element *ngFor="let element of elements" [element]="element" (click)="elementsClick(element)" cdkDrag></app-element>
+<div class="elementsGrid" [class.edit]="this.selectionService.isEditing">
+  <div class="grid" cdkDropList>
+    <app-element
+      *ngFor="let element of elements"
+      [element]="element"
+      [editionMod]="selectionService.selectedElements.indexOf(element) > -1"
+      (click)="elementsClick(element)"
+      (onLongPressing)="longPressing = true"
+      (onLongPress)="selectionService.selectAndUnselectElement(element)"
+      (onLongPressEnd)="elementLongPressEnd()"
+      long-press
+      cdkDrag
+    ></app-element>
+  </div>
+
+  <div class="editBar" [class.show]="selectionService.isEditing">
+    <app-edit-bar></app-edit-bar>
+  </div>
+
 </div>

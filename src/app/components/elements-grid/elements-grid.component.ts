@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core'
-import { FileInterface } from '../../interfaces/File.interface'
-import { FolderModel } from '../../models/Folder.model'
 import { FilesService } from '../../services/files.service'
+import { SelectionService } from '../../services/selection.service'
+import { ElementInterface } from '../../interfaces/Element.interface'
 
 @Component({
   selector: 'app-elements-grid',
@@ -9,11 +9,21 @@ import { FilesService } from '../../services/files.service'
   styleUrls: ['./elements-grid.component.scss']
 })
 export class ElementsGridComponent {
-  @Input() elements: (FolderModel | FileInterface)[] = []
+  @Input() elements: ElementInterface[] = []
+  longPressing: boolean = false
 
-  constructor (private filesService: FilesService) {}
+  constructor (private filesService: FilesService, private selectionService: SelectionService) {}
 
-  elementsClick (element: (FolderModel | FileInterface)): void {
+  elementsClick (element: ElementInterface): void {
+    if (this.longPressing) {
+      return
+    }
+
+    if (this.selectionService.isEditing) {
+      this.selectionService.selectAndUnselectElement(element)
+      return
+    }
+
     const path = '/' + this.filesService.paths.join('/') + '/' + element.name
 
     if (element.type === 'folder') {
@@ -22,5 +32,9 @@ export class ElementsGridComponent {
     }
 
     this.filesService.openFile(path)
+  }
+
+  elementLongPressEnd () {
+    setTimeout(() => this.longPressing = false, 200)
   }
 }

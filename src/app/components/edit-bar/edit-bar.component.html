@@ -1,0 +1,16 @@
+<div class="editBar">
+  <button (click)="cancel()">Annuler</button>
+
+  <ng-container *ngIf="state.rename.state" >
+    <input type="text" [(ngModel)]="state.rename.value" />
+    <button (click)="rename()">Valider</button>
+  </ng-container>
+
+  <ng-container *ngIf="!state.rename.state">
+    <button (click)="prepareRename()" *ngIf="selectionService.selectedElements.length === 1">Renommer</button>
+    <button>Copier</button>
+    <button>Déplacer</button>
+    <button>Supprimer</button>
+  </ng-container>
+
+</div>

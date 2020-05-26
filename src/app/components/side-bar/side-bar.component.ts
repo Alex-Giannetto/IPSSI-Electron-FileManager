@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
 import { FilesService } from '../../services/files.service'
-import { FileInterface } from '../../interfaces/File.interface'
-import { FolderInterface } from '../../interfaces/Folder.Interface'
 
 @Component({
   selector: 'app-side-bar',
@@ -16,12 +14,12 @@ export class SideBarComponent {
 
   constructor (private filesService: FilesService) {}
 
-  onDrop(e){
-    let {type, name, path} = this.filesService.elements[e.previousIndex]
+  onDrop (e) {
+    let { type, name, path } = this.filesService.elements[e.previousIndex]
     path = path + '/' + name
 
-    if(type === 'folder' && this.favorites.filter(element => element.path === path).length === 0){
-      this.favorites.push({ name, path})
+    if (type === 'folder' && this.favorites.filter(element => element.path === path).length === 0) {
+      this.favorites.push({ name, path })
     }
 
   }
