@@ -1,10 +1,12 @@
-import { Injectable } from '@angular/core'
+import { EventEmitter, Injectable } from '@angular/core'
 import { ElementInterface } from '../interfaces/Element.interface'
 
 @Injectable({
   providedIn: 'root'
 })
 export class SelectionService {
+
+  showInformationElement: EventEmitter<ElementInterface> = new EventEmitter<ElementInterface>()
 
   selectedElements: ElementInterface[] = []
 

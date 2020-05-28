@@ -14,7 +14,7 @@ export class ElementsGridComponent {
 
   constructor (private filesService: FilesService, private selectionService: SelectionService) {}
 
-  elementsClick (element: ElementInterface): void {
+  openElement (element: ElementInterface): void {
     if (this.longPressing) {
       return
     }
@@ -34,7 +34,20 @@ export class ElementsGridComponent {
     this.filesService.openFile(path)
   }
 
+  onSimpleClick (element) {
+    if (this.longPressing) {
+      return
+    }
+
+    if (this.selectionService.isEditing) {
+      this.selectionService.selectAndUnselectElement(element)
+      return
+    }
+
+    this.selectionService.showInformationElement.emit(element)
+  }
+
   elementLongPressEnd () {
-    setTimeout(() => this.longPressing = false, 200)
+    setTimeout(() => this.longPressing = false, 350)
   }
 }

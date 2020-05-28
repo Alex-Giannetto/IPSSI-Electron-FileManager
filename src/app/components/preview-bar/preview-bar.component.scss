@@ -1,0 +1,13 @@
+.previewBar{
+  width: 250px;
+  height: 100%;
+  border-left: solid 1px black;
+  padding: 10px;
+  overflow-y: scroll;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}

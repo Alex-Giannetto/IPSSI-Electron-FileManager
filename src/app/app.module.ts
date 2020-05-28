@@ -11,7 +11,8 @@ import { PathBarComponent } from './components/path-bar/path-bar.component'
 import { DragDropModule } from '@angular/cdk/drag-drop'
 import { SideBarComponent } from './components/side-bar/side-bar.component'
 import { LongPressDirective } from './directives/long-press.directive'
-import { EditBarComponent } from './components/edit-bar/edit-bar.component'
+import { EditBarComponent } from './components/edit-bar/edit-bar.component';
+import { PreviewBarComponent } from './components/preview-bar/preview-bar.component'
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { EditBarComponent } from './components/edit-bar/edit-bar.component'
     PathBarComponent,
     SideBarComponent,
     LongPressDirective,
-    EditBarComponent
+    EditBarComponent,
+    PreviewBarComponent
   ],
   imports: [
     BrowserModule,

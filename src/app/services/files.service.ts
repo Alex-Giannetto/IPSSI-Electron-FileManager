@@ -21,10 +21,13 @@ export class FilesService {
     electronFs.readdirSync(path)
       .filter(name => name.charAt(0) !== '.')
       .forEach((name: string) => {
+        const meta = electronFs.statSync(path + '/' + name)
         this.elements.push({
           path,
           name,
-          type: electronFs.statSync(path + '/' + name).isFile() ? 'file' : 'folder'
+          type: meta.isFile() ? 'file' : 'folder',
+          size: meta.size,
+          createdAt: meta.birthtime
         })
       })
 

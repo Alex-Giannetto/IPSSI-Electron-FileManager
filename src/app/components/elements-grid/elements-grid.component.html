@@ -4,10 +4,11 @@
       *ngFor="let element of elements"
       [element]="element"
       [editionMod]="selectionService.selectedElements.indexOf(element) > -1"
-      (click)="elementsClick(element)"
       (onLongPressing)="longPressing = true"
       (onLongPress)="selectionService.selectAndUnselectElement(element)"
       (onLongPressEnd)="elementLongPressEnd()"
+      (onSimpleClick)="onSimpleClick(element)"
+      (onDoubleClick)="openElement(element)"
       long-press
       cdkDrag
     ></app-element>
@@ -18,3 +19,4 @@
   </div>
 
 </div>
+

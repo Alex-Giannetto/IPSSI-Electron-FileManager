@@ -1,4 +1,4 @@
-<div class="element" [class.edit]="editionMod">
+<div class="element" [class.edit]="editionMod" (click)="onClick()">
   <div class="icon" [class.file]="element.type === 'file'" [class.folder]="element.type === 'folder'">
     <div class="extension">{{element.type === 'file'? filesService.getExtension(element) : ''}}</div>
   </div>

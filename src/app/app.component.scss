@@ -9,6 +9,7 @@
     flex-direction: row;
     height: 100%;
     width: 100%;
+    overflow-y: scroll;
   }
 
   .header {
@@ -30,17 +31,9 @@
     display: flex;
     flex-direction: column;
     overflow-x: scroll;
+  }
 
-    .display {
-      flex: 1 1 auto;
-      overflow-y: auto;
-      height: 0;
-    }
-
-
+  .max-wide{
+    width: 100vw;
   }
 }
-
-
-
-

@@ -1,0 +1,9 @@
+<div class="previewBar">
+  <ng-container *ngIf="element">
+    <app-element [element]="element"></app-element>
+
+    <h1>Informations</h1>
+    <p>Poids : {{element.size / 1000000}} mo</p>
+    <p>Crée le : {{element.createdAt}}</p>
+  </ng-container>
+</div>
